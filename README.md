@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+# Todo Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple Todo application built with React to manage daily tasks efficiently.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Add Todos**: Add new tasks to your list.
+- **View Todos**: View all your pending tasks.
+- **Mark Complete**: Mark tasks as completed.
+- **Delete Todos**: Remove tasks from your list.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+- **Frontend**: React, JavaScript, Tailwind CSS
+- **Package Manager**: pnpm
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Follow these steps to set up and run the Todo application on your local machine.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Ensure you have the following installed on your system:
 
-### `npm run eject`
+1. **Node.js**: [Download Node.js](https://nodejs.org/)
+2. **pnpm**: Install pnpm globally using npm:
+   ```bash
+   npm install -g pnpm
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   git clone https://github.com/your-username/todo-app.git
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Navigate to the project directory:
 
-## Learn More
+   ```bash
+   cd todo-app
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Install dependencies:
+   ```bash
+   pnpm install
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Running the Application
 
-### Code Splitting
+1. Start the development server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```bash
+   pnpm start
+   ```
 
-### Analyzing the Bundle Size
+2. Open your browser and visit:
+   ```
+   http://localhost:3000
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## File Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+.
+├── public          # Public assets
+├── src
+│   ├── components  # Reusable components
+│   ├── pages       # Application pages
+│   ├── styles      # Tailwind CSS styles
+│   ├── App.js      # Main application file
+│   └── index.js    # Entry point
+├── package.json    # Project metadata
+└── README.md       # Documentation
+```
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contribution
 
-### Deployment
+Contributions are welcome! Follow these steps to contribute:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Make your changes and commit:
+   ```bash
+   git commit -m "Description of changes"
+   ```
+4. Push to your branch:
+   ```bash
+   git push origin feature-name
+   ```
+5. Open a pull request.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## Contact
+
+For inquiries, please contact:
+
+- **Email**: dipenmagdani@gmail.com
+- **GitHub**: dipenmagdani(https://github.com/dipenmagdani)
