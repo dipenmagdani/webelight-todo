@@ -8,7 +8,6 @@ A simple Todo application built with React to manage daily tasks efficiently.
 
 - **Add Todos**: Add new tasks to your list.
 - **View Todos**: View all your pending tasks.
-- **Mark Complete**: Mark tasks as completed.
 - **Delete Todos**: Remove tasks from your list.
 
 ---
@@ -75,7 +74,7 @@ Ensure you have the following installed on your system:
 ├── public          # Public assets
 ├── src
 │   ├── components  # Reusable components
-│   ├── pages       # Application pages
+│   ├── context     # Context API
 │   ├── styles      # Tailwind CSS styles
 │   ├── App.js      # Main application file
 │   └── index.js    # Entry point
