@@ -7,11 +7,21 @@ export const TodoProvider = (props) => {
     const storedTodo = localStorage.getItem("todos");
     return storedTodo ? JSON.parse(storedTodo) : [];
   });
+
+  const [isEdit, setIsEdit] = useState(false);
   //   useEffect(() => {
   //     localStorage.setItem("todos", JSON.stringify(todoList));
   //   }, [todoList]);
+
+  const handleInputChange = (e) => {
+    setTodoContent(e.target.value);
+  };
+
   const handleAddButton = () => {
-    console.log(todoContent);
+    if (todoContent.trim() === "") {
+      window.alert("Task content cannot be empty");
+      return;
+    }
     const newTodo = {
       id: Date.now(),
       content: todoContent,
@@ -32,9 +42,23 @@ export const TodoProvider = (props) => {
     setTodoList(updatedTodo);
   };
 
+  const handleEdit = (e, id) => {
+    setIsEdit(true);
+    console.log(id);
+    console.log(e);
+  };
+
   return (
     <TodoContext.Provider
-      value={{ handleAddButton, setTodoContent, todoList, handleDelete }}
+      value={{
+        handleAddButton,
+        todoContent,
+        todoList,
+        handleDelete,
+        handleInputChange,
+        handleEdit,
+        isEdit,
+      }}
     >
       {props.children}
     </TodoContext.Provider>
