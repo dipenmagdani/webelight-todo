@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useRef, useState } from "react";
 
 export const TodoContext = createContext(null);
 export const TodoProvider = (props) => {
@@ -7,13 +7,23 @@ export const TodoProvider = (props) => {
     const storedTodo = localStorage.getItem("todos");
     return storedTodo ? JSON.parse(storedTodo) : [];
   });
+  const [isCompleted, setIsCompleted] = useState(false);
+  const [tempContent, setTempContent] = useState("");
+  const inputRef = useRef(null);
 
   const [isEdit, setIsEdit] = useState(false);
-  //   useEffect(() => {
-  //     localStorage.setItem("todos", JSON.stringify(todoList));
-  //   }, [todoList]);
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todoList));
+  }, [todoList]);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isEdit]);
 
   const handleInputChange = (e) => {
+    console.log(e.target.value);
     setTodoContent(e.target.value);
   };
 
@@ -25,6 +35,7 @@ export const TodoProvider = (props) => {
     const newTodo = {
       id: Date.now(),
       content: todoContent,
+      completed: false,
     };
 
     setTodoList((prevTodo) => {
@@ -42,10 +53,38 @@ export const TodoProvider = (props) => {
     setTodoList(updatedTodo);
   };
 
-  const handleEdit = (e, id) => {
-    setIsEdit(true);
-    console.log(id);
-    console.log(e);
+  const handleEditInputChange = (e) => {
+    console.log(e.target.value);
+    setTempContent(e.target.value);
+  };
+  const handleEdit = () => {
+    alert("Pending");
+    // setIsEdit(true);
+  };
+
+  const handleFinalEdit = (id) => {
+    // console.log(content);
+    setTodoList(() => {
+      const content = todoList.find((todo) => todo.id === id);
+      const updatedTodo = {
+        id: content.id,
+        content: tempContent,
+      };
+      localStorage.setItem("todos", JSON.stringify(updatedTodo));
+    });
+    setIsEdit(false);
+  };
+
+  const handleMarkAsCompleted = (id) => {
+    const completedValue = todoList.map((todo) => todo.id === id);
+    setIsCompleted(completedValue);
+    setTodoList((prevTodo) => {
+      const updatedTodo = prevTodo.map((todo) =>
+        todo.id === id ? { ...todo, completed: true } : todo
+      );
+      localStorage.setItem("todos", JSON.stringify(updatedTodo));
+      return updatedTodo;
+    });
   };
 
   return (
@@ -58,6 +97,13 @@ export const TodoProvider = (props) => {
         handleInputChange,
         handleEdit,
         isEdit,
+        handleEditInputChange,
+        tempContent,
+        inputRef,
+        handleFinalEdit,
+        handleMarkAsCompleted,
+        isCompleted,
+        setTodoList,
       }}
     >
       {props.children}
